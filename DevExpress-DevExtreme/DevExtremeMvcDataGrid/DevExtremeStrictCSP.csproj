@@ -116,6 +116,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Charset.css" />
+    <Content Include="Content\ControlStyles\HTMLEditor.css" />
     <Content Include="Content\dx-diagram.css" />
     <Content Include="Content\dx-diagram.min.css" />
     <Content Include="Content\dx-gantt.css" />
@@ -173,6 +174,7 @@
     <Content Include="Scripts\cldr\unresolved.js" />
     <Content Include="Scripts\cldr\unresolved.min.js" />
     <Content Include="Scripts\ControlsScript\DevExtremeDataGrid.js" />
+    <Content Include="Scripts\ControlsScript\DevExtremeHTMLEditor.js" />
     <Content Include="Scripts\ControlsScript\DevExtremePivotGrid.js" />
     <Content Include="Scripts\dx-diagram.js" />
     <Content Include="Scripts\dx-diagram.min.js" />
@@ -314,6 +316,7 @@
   <ItemGroup>
     <Content Include="Web.config" />
     <Content Include="Views\PivotGrid\DisplayPivotGrid.cshtml" />
+    <Content Include="Views\HTMLEditor\PaintHTMLEditor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -333,6 +336,7 @@
     <Compile Include="Controllers\DevExtremeGridController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HTMLEditorController.cs" />
     <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PivotGridController.cs" />

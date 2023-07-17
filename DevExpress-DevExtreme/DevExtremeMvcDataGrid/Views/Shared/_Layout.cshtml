@@ -14,6 +14,8 @@
     @* Uncomment to use the HtmlEditor control *@
     @* <script src="https://unpkg.com/devextreme-quill@23_1/dist/dx-quill.min.js"></script> *@
 
+    <script src="~/Scripts/dx-quill.min.js"></script>
+
     @Styles.Render("~/Content/bundle")
     @Styles.Render("~/Content/DevExtremeBundle")
     @Scripts.Render("~/Scripts/bundle")
@@ -34,6 +36,7 @@
                 <ul class="navbar-nav me-auto">
                     <li>@Html.ActionLink("Data Grid", "PaintGrid", "DevExtremeGrid", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Pivot Grid", "DisplayPivotGrid", "PivotGrid", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("HTML Editor", "PaintHTMLEditor", "HTMLEditor", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
             </div>
         </div>
