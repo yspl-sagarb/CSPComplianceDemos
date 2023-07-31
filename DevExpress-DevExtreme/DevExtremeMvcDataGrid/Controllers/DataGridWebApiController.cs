@@ -118,6 +118,19 @@ namespace DevExtremeMvcDataGrid.Controllers
             return Request.CreateResponse(DataSourceLoader.Load(lookup, loadOptions));
         }
 
+
+        [HttpGet]
+        public IHttpActionResult ShipNameLookup(string search)
+        {
+            var lookup = _nwind.Orders
+                .GroupBy(d => d.ShipName)
+                .Where(d => d.FirstOrDefault().ShipName.ToLower().Contains(search.ToLower()))
+                .Select(d => d.FirstOrDefault().ShipName)
+                .ToArray();
+
+            return Ok(lookup);
+        }
+
         [HttpPost]
         public HttpResponseMessage Batch(List<DataChange> changes)
         {

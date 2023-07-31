@@ -48,6 +48,8 @@ namespace datagrid_webapi.Models
         [StringLength(15)]
         public string ShipCountry { get; set; }
 
+        public bool IsActive { get; set; }
+
         [JsonIgnore]
         public virtual Customer Customer { get; set; }
 

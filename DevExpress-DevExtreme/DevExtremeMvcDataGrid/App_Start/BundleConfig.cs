@@ -16,11 +16,11 @@ namespace DevExtremeMvcDataGrid
 
             // Bootstrap
             scriptBundle
-                .Include("~/Scripts/bootstrap.js");
+                .Include("~/Scripts/bootstrap.bundle.js");
 
             // Bootstrap
             styleBundle
-                .Include("~/Content/bootstrap.css");
+                .Include("~/Content/bootstrap.min.css");
 
             // Custom site styles
             styleBundle
@@ -28,6 +28,8 @@ namespace DevExtremeMvcDataGrid
 
             bundles.Add(scriptBundle);
             bundles.Add(styleBundle);
+
+            bundles.Add(new ScriptBundle("~/Scripts/signalR").Include("~/lib/signalr/jquery.signalR.js").Include("~/lib/signalr/signalr-hub.js"));
 
             // BundleTable.EnableOptimizations = true;
         }

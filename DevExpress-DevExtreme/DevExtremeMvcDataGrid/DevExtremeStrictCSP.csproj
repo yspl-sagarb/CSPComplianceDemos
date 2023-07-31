@@ -17,9 +17,9 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressSSLPort>44341</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -58,12 +58,30 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.3\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.3\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -75,6 +93,7 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -111,13 +130,33 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="FileUpload\UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Charset.css" />
+    <Content Include="Content\ControlStyles\AsyncFileUpload.css" />
+    <Content Include="Content\ControlStyles\ChunkFileUpload.css" />
+    <Content Include="Content\ControlStyles\DropdownButton.css" />
+    <Content Include="Content\ControlStyles\ContextMenu.css" />
+    <Content Include="Content\ControlStyles\DataGrid.css" />
+    <Content Include="Content\ControlStyles\DevExteremeGridWithDDL.css" />
     <Content Include="Content\ControlStyles\HTMLEditor.css" />
-    <Content Include="Content\ControlStyles\ModelPopUp.css" />
     <Content Include="Content\dx-diagram.css" />
     <Content Include="Content\dx-diagram.min.css" />
     <Content Include="Content\dx-gantt.css" />
@@ -158,12 +197,23 @@
     <Content Include="Content\dx.material.teal.light.css" />
     <Content Include="Content\dx.softblue.compact.css" />
     <Content Include="Content\dx.softblue.css" />
+    <Content Include="Content\MenuImages\icon-folder-assign.png" />
+    <Content Include="Content\MenuImages\DefaultFunction.png" />
+    <Content Include="Content\MenuImages\ViewDetails.png" />
+    <Content Include="Content\image\Laptop.png" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="lib\signalr\jquery.signalR.js" />
+    <Content Include="lib\signalr\jquery.signalR.min.js" />
+    <Content Include="lib\signalr\signalr-hub.js" />
     <Content Include="ReadMe.txt" />
     <Content Include="Scripts\aspnet\dx.aspnet.data.js" />
     <Content Include="Scripts\aspnet\dx.aspnet.mvc.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\cldr.js" />
@@ -174,10 +224,22 @@
     <Content Include="Scripts\cldr\supplemental.min.js" />
     <Content Include="Scripts\cldr\unresolved.js" />
     <Content Include="Scripts\cldr\unresolved.min.js" />
+    <Content Include="Scripts\ControlsScript\DevExtremeDropdownButton.js" />
+    <Content Include="Scripts\ControlsScript\DevExtremeContextMenu.js" />
+    <Content Include="Scripts\ControlsScript\DataGrid\DEGridGroupingAggregate..js" />
+    <Content Include="Scripts\ControlsScript\DataGrid\DEGridVirtualScrolling.js" />
+    <Content Include="Scripts\ControlsScript\DataGrid\DevExtremeDataGrid.js" />
+    <Content Include="Scripts\ControlsScript\DevExteremeGridWithDDL.js" />
     <Content Include="Scripts\ControlsScript\DevExtremeDataGrid.js" />
-    <Content Include="Scripts\ControlsScript\DevExtremeHTMLEditor.js" />
+    <Content Include="Scripts\ControlsScript\DataGrid\FMGridDragDrop.js" />
+    <Content Include="Scripts\ControlsScript\DataGrid\FMHierarchyGrid.js" />
+    <Content Include="Scripts\ControlsScript\DevExtremeDateControl.js" />
+    <Content Include="Scripts\ControlsScript\DevExtremeDropDownColumn.js" />
     <Content Include="Scripts\ControlsScript\DevExtremePivotGrid.js" />
-    <Content Include="Scripts\ControlsScript\Modelpopup.js" />
+    <Content Include="Scripts\ControlsScript\DevExtremeHTMLEditor.js" />
+    <Content Include="Scripts\ControlsScript\FileUpload\DevExtremeAsyncFileUpload.js" />
+    <Content Include="Scripts\ControlsScript\FileUpload\DevExtremeChunkFileUpload.js" />
+    <Content Include="Scripts\ControlsScript\FileUpload\DevExtremeDataGridWithFileUpload.js" />
     <Content Include="Scripts\dx-diagram.js" />
     <Content Include="Scripts\dx-diagram.min.js" />
     <Content Include="Scripts\dx-gantt.js" />
@@ -204,11 +266,14 @@
     <Content Include="Scripts\globalize\message.min.js" />
     <Content Include="Scripts\globalize\number.js" />
     <Content Include="Scripts\globalize\number.min.js" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.3.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.3.min.js" />
     <Content Include="Scripts\jspdf.plugin.autotable.js" />
     <Content Include="Scripts\jspdf.plugin.autotable.min.js" />
     <Content Include="Scripts\jspdf.umd.js" />
@@ -318,8 +383,19 @@
   <ItemGroup>
     <Content Include="Web.config" />
     <Content Include="Views\PivotGrid\DisplayPivotGrid.cshtml" />
+    <Content Include="Views\DateControls\PaintDateControls.cshtml" />
+    <Content Include="Views\MultiSelectDropDown\PaintMultiSelectDropdownControls.cshtml" />
     <Content Include="Views\HTMLEditor\PaintHTMLEditor.cshtml" />
-    <Content Include="Views\PopUp\_PopUp.cshtml" />
+    <Content Include="Views\DevExtremeGrid\VirtualScrollingGrid.cshtml" />
+    <Content Include="Views\DevExtremeGrid\GroupingAggregateGrid.cshtml" />
+    <Content Include="Views\DevExteremeGridWithDDL\DevExteremeGridWithDDL.cshtml" />
+    <Content Include="Views\ContextMenu\PaintContextMenu.cshtml" />
+    <Content Include="Views\DropdownButton\PaintDropdownButton.cshtml" />
+    <Content Include="Views\DevExtremeGrid\FMRowDragDrop.cshtml" />
+    <Content Include="Views\DevExtremeGrid\FMHierarchyGrid.cshtml" />
+    <Content Include="Views\FileUpload\PaintAsyncFileUpload.cshtml" />
+    <Content Include="Views\FileUpload\PaintChunkFileUpload.cshtml" />
+    <Content Include="Views\FileUpload\PaintDataGridWithUpload.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -331,22 +407,29 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DevExtremeBundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\Hubs.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\DataGridScrollingController.cs" />
     <Compile Include="Controllers\DataGridWebApiController.cs" />
+    <Compile Include="Controllers\DateControlsController.cs" />
+    <Compile Include="Controllers\DevExteremeGridWithDDLController.cs" />
     <Compile Include="Controllers\DevExtremeGridController.cs" />
+    <Compile Include="Controllers\DropdownButtonController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\HTMLEditorController.cs" />
+    <Compile Include="Controllers\ContextMenuController.cs" />
+    <Compile Include="Controllers\MultiSelectDropDownController.cs" />
     <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PivotGridController.cs" />
-    <Compile Include="Controllers\PopUpController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\SampleDataController.cs" />
     <Compile Include="Controllers\ShippersController.cs" />
+    <Compile Include="Controllers\HTMLEditorController.cs" />
     <Compile Include="DataSourceLoadOptions.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -385,7 +468,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64713</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64713/</IISUrl>
+          <IISUrl>https://localhost:44301/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

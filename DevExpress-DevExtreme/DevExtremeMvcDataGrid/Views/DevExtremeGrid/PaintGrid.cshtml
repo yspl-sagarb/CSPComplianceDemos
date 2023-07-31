@@ -1,10 +1,17 @@
 ﻿
-@{
-    ViewBag.Title = "PaintGrid";
-}
 
-<script src="~/Scripts/ControlsScript/DevExtremeDataGrid.js"></script>
+<script src="~/lib/signalr/jquery.signalR.js"></script>
+<script src="~/lib/signalr/signalr-hub.js"></script>
+
+<link href="~/Content/ControlStyles/DataGrid.css" rel="stylesheet" />
+<script src="~/Scripts/ControlsScript/DataGrid/DevExtremeDataGrid.js"></script>
 
 <div class="demo-container paddingTop">
     <div id="grid"></div>
 </div>
+
+
+<div id="context-menu"></div>
+ 
+<input type="hidden" id="hfEditMode" value="batch" />
+<input type="hidden" id="hfBaseUrl" value="@HttpUtility.JavaScriptStringEncode(new Uri(new Uri(ViewContext.HttpContext.Request.Url.GetLeftPart(UriPartial.Authority)), Url.Content("~/")).ToString(), false)" />

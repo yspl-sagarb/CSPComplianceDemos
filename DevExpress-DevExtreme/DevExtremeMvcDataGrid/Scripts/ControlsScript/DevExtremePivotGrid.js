@@ -4516,10 +4516,10 @@ $(() =>
         allowSortingBySummary: true,
         allowFiltering: true,
         showBorders: true,
-        showColumnGrandTotals: false,
-        showRowGrandTotals: false,
-        showRowTotals: false,
-        showColumnTotals: false,
+        //showColumnGrandTotals: false,
+        //showRowGrandTotals: false,
+        //showRowTotals: false,
+        //showColumnTotals: false,
         fieldChooser: {
             enabled: true,
             height: 400,
@@ -4554,6 +4554,17 @@ $(() =>
             }],
             store: sales,
         },
+        onCellPrepared(e)
+        {
+            const { cell } = e;
+            cell.area = e.area;
+
+            if (isDataCell(cell) || isTotalCell(cell))
+            {
+                const appearance = getConditionalAppearance(cell);
+                Object.assign(e.cellElement.get(0).style, getCssStyles(appearance));
+            }
+        },
     }).dxPivotGrid('instance');
 
     pivotGrid.bindChart(pivotGridChart, {
@@ -4566,6 +4577,50 @@ $(() =>
         const dataSource = pivotGrid.getDataSource();
         dataSource.expandHeaderItem('row', ['North America']);
         dataSource.expandHeaderItem('column', [2013]);
+    }
+
+    function isDataCell(cell)
+    {
+        return (cell.area === 'data' && cell.rowType === 'D' && cell.columnType === 'D');
+    }
+
+    function isTotalCell(cell)
+    {
+        return (cell.type === 'T' || cell.type === 'GT' || cell.rowType === 'T' || cell.rowType === 'GT' || cell.columnType === 'T' || cell.columnType === 'GT');
+    }
+
+    function getExcelCellFormat(appearance)
+    {
+        return {
+            fill: { type: 'pattern', pattern: 'solid', fgColor: { argb: appearance.fill } },
+            font: { color: { argb: appearance.font }, bold: appearance.bold },
+        };
+    }
+
+    function getCssStyles(appearance)
+    {
+        return {
+            'background-color': `#${appearance.fill}`,
+            color: `#${appearance.font}`,
+            'font-weight': appearance.bold ? 'bold' : undefined,
+        };
+    }
+
+    function getConditionalAppearance(cell)
+    {
+        if (isTotalCell(cell))
+        {
+            return { fill: 'F2F2F2', font: '3F3F3F', bold: true };
+        }
+        if (cell.value < 20000)
+        {
+            return { font: '9C0006', fill: 'FFC7CE' };
+        }
+        if (cell.value > 50000)
+        {
+            return { font: '006100', fill: 'C6EFCE' };
+        }
+        return { font: '9C6500', fill: 'FFEB9C' };
     }
 
     setTimeout(expand, 0);

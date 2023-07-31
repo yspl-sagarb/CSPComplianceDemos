@@ -11,6 +11,12 @@ namespace datagrid_webapi.Models
             Order_Details = new HashSet<Order_Detail>();
         }
 
+        public Product(int productID, string productName)
+        {
+            ProductID = productID;
+            ProductName = productName;
+        }
+
         public int ProductID { get; set; }
 
         [Required]

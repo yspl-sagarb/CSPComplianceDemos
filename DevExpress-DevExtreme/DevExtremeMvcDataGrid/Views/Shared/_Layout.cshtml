@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>DevExtremeMvcDataGrid</title>
+    <title>DevExtreme Samples</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
     @* Uncomment to use the HtmlEditor control *@
@@ -34,19 +34,72 @@
 
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto">
-                    <li>@Html.ActionLink("Data Grid", "PaintGrid", "DevExtremeGrid", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Pivot Grid", "DisplayPivotGrid", "PivotGrid", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dx Grid
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                @Html.ActionLink("Data Grid", "PaintGrid", "DevExtremeGrid", new { area = "" },
+                           new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Data Grid With Virtual Scrolling", "VirtualScrollingGrid", "DevExtremeGrid", new { area = "" },
+                           new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Data Grid With Grouping Aggregate", "GroupingAggregateGrid", "DevExtremeGrid", new { area = "" },
+                           new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("FM Grid With Row Drag-Drop", "FMRowDragDrop", "DevExtremeGrid", new { area = "" },
+                           new { @class = "dropdown-item" })
+                            </li>
+
+                            <li>
+                                @Html.ActionLink("FM Hierarchy Grid", "FMHierarchyGrid", "DevExtremeGrid", new { area = "" },
+                           new { @class = "dropdown-item" })
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    @*<li>@Html.ActionLink("Pivot Grid", "DisplayPivotGrid", "PivotGrid", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Date Control", "PaintDateControls", "DateControls", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("HTML Editor", "PaintHTMLEditor", "HTMLEditor", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Model Popup", "Index", "PopUp", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Data Grid MultiDDL", "DevExteremeGridWithDDL", "DevExteremeGridWithDDL", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Context Menu", "PaintContextMenu", "ContextMenu", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Dropdown Button", "PaintDropdownButton", "DropdownButton", new { area = "" }, new { @class = "nav-link" })</li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            File Upload
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                @Html.ActionLink("Async Upload", "PaintAsyncFileUpload", "FileUpload", new { area = "" },
+                           new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Chunk Uploading", "PaintChunkFileUpload", "FileUpload", new { area = "" },
+                           new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Data Grid With File Upload", "PaintDataGridWithUpload", "FileUpload", new { area = "" },
+                           new { @class = "dropdown-item" })
+                            </li>
+                        </ul>
+                    </li>*@
                 </ul>
             </div>
-        </div>
-    </nav>
 
-    <main class="container">
-         
-        @RenderBody()
-    </main>
+        </div>
+</nav>
+
+<main class="container">
+
+    @RenderBody()
+</main>
 </body>
 
 </html>
